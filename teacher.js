@@ -1,5 +1,5 @@
 import express from 'express';
-import {addmultipleteacher, addteacher,deleteteacher,editteacher, objidfind, teachers} from './controller/teachers.js'
+import {addmultipleteacher, addTeacher,deleteteacher,editteacher, objidfindteacher, teachers} from './controller/teacher.js'
 
 
 
@@ -8,7 +8,7 @@ const router = express.Router();
 // POST
 router.post("/addteacher" , async(req,res)=>{
   const newData = req.body;
-  const result = await addteacher(newData);
+  const result = await addTeacher(newData);
 
   res.status(200).send(result)
 
@@ -40,7 +40,7 @@ router.get("/",async (req,res)=>{
 router.get("/:id",async(req,res)=>{
 
   const {id}=req.params;
-  const result = await objidfind(id);
+  const result = await objidfindteacher(id);
   res.status(200).send(result)
 
 })
