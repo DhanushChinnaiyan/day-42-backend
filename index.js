@@ -10,6 +10,7 @@
 import express from "express";
 import {studentsRouter} from "./student.js"
 import cors from 'cors';
+import { teachersRouter } from "./teacher.js";
 
 
 
@@ -20,5 +21,6 @@ app.use(express.static("express")); // loading the static file
 app.use(express.json()) // middleware tells server to use json
 app.use(cors())
 
-app.use("/students" , studentsRouter )
+app.use("/students" , studentsRouter)
+app.use("/teachers" , teachersRouter)
 app.listen(9000,()=>console.log(`server started localhost:9000`))

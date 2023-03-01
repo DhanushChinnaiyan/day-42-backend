@@ -2,6 +2,7 @@
 import { client, ObjectId } from '../db.js'
 
 
+// STUDENT
 
 export const students = (req) => {
 
@@ -12,6 +13,9 @@ export const students = (req) => {
     .toArray()
 }
 
+
+
+
 export const addStudent = (newData) => {
 
     return client
@@ -19,6 +23,8 @@ export const addStudent = (newData) => {
     .collection("students")
     .insertOne(newData)
 }
+
+
 
 export const addmultiplestudent = (manyData) => {
 
@@ -28,6 +34,7 @@ export const addmultiplestudent = (manyData) => {
     .insertMany(manyData)
 }
 
+
 export const objidfind = (id) => {
 
     return client
@@ -35,6 +42,8 @@ export const objidfind = (id) => {
     .collection("students")
     .findOne({_id:new ObjectId(id)})
 }
+
+
 
 // export const idfind = (id) => {
 
@@ -51,6 +60,8 @@ export const editstudent = (id,updatedstudent) => {
     .collection("students")
     .updateOne({_id:new ObjectId(id)},{$set:updatedstudent})
 }
+
+
 
 export const deletestudent = (id) => {
 
