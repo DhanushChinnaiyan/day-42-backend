@@ -50,6 +50,6 @@ export const deleteteacher = (id) => {
 
     return client
     .db("mongoworkout")
-    .collection("teacher")
+    .collection("teachers")
     .deleteOne({_id:new ObjectId(id)})
 }
