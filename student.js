@@ -10,7 +10,7 @@ router.post("/addstudent" , async(req,res)=>{
   const newData = req.body;
   const result = await addStudent(newData);
 
-  res.status(200).send(result)
+  res.status(200).json(result)
 
 
 })
