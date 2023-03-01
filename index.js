@@ -24,11 +24,20 @@ app.use(cors())
 
 
 app.get("/",async(req,res)=>{
-    const data = await client
+    const studentdata =  await client
     .db("mongoworkout")
-    .showCollections()
+    .collection("students")
+    .find()
+    .toArray()
 
-    res.status(200).json({routes:data})
+    const teacherdata = await client
+    .db("mongoworkout")
+    .collection("teachers")
+    .find()
+    .toArray()
+
+
+    res.status(200).json({studentsData:studentdata,teachersData:teacherdata})
 })
 app.use("/students" , studentsRouter)
 app.use("/teachers" , teachersRouter)
